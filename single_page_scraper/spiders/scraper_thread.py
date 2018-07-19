@@ -1,9 +1,8 @@
+# usage: scrapy crawl single_page_spider -a category=https://www.snopes.com/fact-check/teenage-daughter-shirt-pregnant/
+# this version is for multiple thread use in interface.py
+
 import scrapy
 import re
-import pandas as pd
-# usage: scrapy crawl single_page_spider -a category=https://www.snopes.com/fact-check/teenage-daughter-shirt-pregnant/
-
-from single_page_scraper.items import SinglePageScraperItem
 
 
 class SinglePageSpiderThread(scrapy.Spider):
@@ -11,8 +10,9 @@ class SinglePageSpiderThread(scrapy.Spider):
     name = 'single_page__thread_spider'
 
     def __init__(self,
-                 category='https://www.snopes.com/fact-check/accused-russian-spy-mariia-butina-photographed-oval-office/'):
+                 category='https://www.snopes.com/fact-check/accused-russian-spy-mariia-butina-photographed-oval-office/',n=1):
         self.start_urls = [category]
+        self.n = n
 
     def parse(self, response):
 
@@ -28,28 +28,13 @@ class SinglePageSpiderThread(scrapy.Spider):
         else:
             rating = rating.lower()
         yield {
-            'claim': response.css(ARTICLE_SELECTOR).css('p ').extract_first().strip(),
+            'id': self.n,
+            'claim': response.css(ARTICLE_SELECTOR).css('p ::text').extract_first().strip(),
             'rating': rating,
             'image_url': re.findall(r'srcset="(.*?)[,|"]', temp_img),  # list
             'permalink': "".join(re.findall(r'permalink: \'(.*?)\'', temp_script)),
             'publish_date': "".join(re.findall(r'datePublished : \'(.*?)\'', temp_script))
 
         }
-        # item = SinglePageScraperItem()
-        # item['id'] = self.n
-        # claim = response.css(ARTICLE_SELECTOR).css('p ::text').extract_first().strip()
-        # item['claim'] = claim
-        #
-        # rating = response.css(RATING_SELECTOR).css('span ::text').extract_first()
-        # if rating is None:
-        #     item['rating'] = 'NULL'
-        # else:
-        #     item['rating'] = rating.lower()
-        #
-        # item['image_url'] = re.findall(r'srcset="(.*?)[,|"|\?]', temp_img),
-        # item['permalink'] = "".join(re.findall(r'permalink: \'(.*?)\'', temp_script)),
-        # item['publish_date'] = "".join(re.findall(r'datePublished : \'(.*?)\'', temp_script))
-        # # yield item
-
 
         print("Done!")

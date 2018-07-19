@@ -66,7 +66,7 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     'single_page_scraper.pipelines.SinglePageScraperPipeline': 300,
     'single_page_scraper.pipelines.PipelineToCSV': 200,
-    # 'single_page_scraper.pipelines.JsonExporterPipeline': 200,
+    'single_page_scraper.pipelines.JsonExporterPipeline': 100,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
