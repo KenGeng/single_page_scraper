@@ -16,8 +16,8 @@
 import csv
 import json
 
-csvfile = open('./result_final_1800.csv', 'r',encoding='utf-8')
-jsonfile = open('./result_array_1800.json', 'w',encoding='utf-8')
+csvfile = open('../result_final_only_image.csv', 'r',encoding='utf-8')
+jsonfile = open('../result_final_only_image', 'w',encoding='utf-8')
 
 fieldnames = ("id","claim","rating","image_url","permalink","publish_date")
 reader = csv.DictReader(csvfile, fieldnames)

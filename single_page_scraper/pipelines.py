@@ -24,7 +24,7 @@ class SinglePageScraperPipeline(object):
 # json array
 class JsonExporterPipeline(object):
     def __init__(self):
-        self.file = open('./articlejson.json', 'wb')
+        self.file = open('./simplified_result.json', 'wb')
         self.exporter = JsonItemExporter(self.file, encoding="utf-8", ensure_ascii=False)
         self.exporter.start_exporting()
 
@@ -52,7 +52,9 @@ class PipelineToCSV(object):
         # csv写法
         self.writer = csv.writer(self.file)
         if flag == 1:
-            self.writer.writerow(('id', 'claim', 'rating', 'image_url', 'permalink', 'publish_date'))
+            # self.writer.writerow(('id', 'claim', 'rating', 'image_url', 'permalink', 'publish_date'))
+            # simplified:
+            self.writer.writerow(('id', 'image_url', 'permalink'))
 
     def process_item(self, item, spider):
         # 判断字段值不为空再写入文件

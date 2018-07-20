@@ -1,4 +1,4 @@
-# usage: scrapy crawl single_page_spider -a category=https://www.snopes.com/fact-check/teenage-daughter-shirt-pregnant/
+# usage: scrapy crawl single_page_spider_simplified -a category=https://www.snopes.com/fact-check/teenage-daughter-shirt-pregnant/
 # this version is collect simplified information
 
 
@@ -36,10 +36,11 @@ class SinglePageSpiderSimplified(scrapy.Spider):
             rating = 'NULL'
         else:
             rating = rating.lower()
-        if  len(re.findall(r'srcset="(.*?)[,|"]', temp_img))>0:
+
+        if len(re.findall(r'srcset="(.*?)[,|"]', temp_img)) > 0 :
             yield {
                 'id': self.n,
-                'image_url': re.findall(r'srcset="(.*?)[,|"]', temp_img)[0],  # list
+                'image_url': re.findall(r'srcset="(.*?)[\?|,|"]', temp_img)[0],  # list
                 'permalink': "".join(re.findall(r'permalink: \'(.*?)\'', temp_script)),
             }
 
@@ -48,7 +49,7 @@ class SinglePageSpiderSimplified(scrapy.Spider):
         next_page = self.d.iat[self.n, 1]
 
         # print(next_page)
-        if next_page and self.n < 301:
+        if next_page :
             # normal page
 
             yield scrapy.Request(
