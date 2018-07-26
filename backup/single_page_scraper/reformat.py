@@ -15,12 +15,11 @@
 # in fact, we don't need it any more
 import csv
 import json
-# utf-8 or ISO-8859-13; try to set encoding when error
-csvfile = open('../result_true.csv', 'r',encoding='ISO-8859-13')
-jsonfile = open('../result_true_2.json', 'w',encoding='ISO-8859-13')
 
-fieldnames = ("id","claim","rating","image_url","permalink","publish_date","reddit_url")
+csvfile = open('../result_final_only_image.csv', 'r',encoding='utf-8')
+jsonfile = open('../result_final_only_image', 'w',encoding='utf-8')
+
+fieldnames = ("id","claim","rating","image_url","permalink","publish_date")
 reader = csv.DictReader(csvfile, fieldnames)
-
 out = json.dumps([ row for row in reader],ensure_ascii=False)
 jsonfile.write(out)

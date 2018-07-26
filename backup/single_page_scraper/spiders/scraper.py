@@ -11,7 +11,7 @@ from single_page_scraper.items import SinglePageScraperItem
 
 class SinglePageSpider(scrapy.Spider):
     def __init__(self):
-        self.n = 880
+        self.n = 0
         self.d = pd.read_csv('/Users/apple/fakenews/single_page_scraper/single_page_scraper/TitleAndLink2.csv',
                              usecols=['title', 'link'])
         self.start_urls = [self.d.iat[self.n, 1]]
@@ -32,22 +32,19 @@ class SinglePageSpider(scrapy.Spider):
             return
 
         rating = response.css(RATING_SELECTOR).css('span ::text').extract_first()
+        if rating is None:
+            rating = 'NULL'
+        else:
+            rating = rating.lower()
+        yield {
+            'id': self.n,
+            'claim': response.css(ARTICLE_SELECTOR).css('p ::text').extract_first().strip(),
+            'rating': rating,
+            'image_url': re.findall(r'srcset="(.*?)[,|"]', temp_img),  # list
+            'permalink': "".join(re.findall(r'permalink: \'(.*?)\'', temp_script)),
+            'publish_date': "".join(re.findall(r'datePublished : \'(.*?)\'', temp_script))
 
-
-        if len(re.findall(r'srcset="(.*?)[,|"]', temp_img)) > 0 and not (rating is None):
-            if rating is None:
-                rating = 'NULL'
-            else:
-                rating = rating.lower()
-            yield {
-                'id': self.n,
-                'claim': response.css(ARTICLE_SELECTOR).css('p ::text').extract_first().strip(),
-                'rating': rating,
-                'image_url': re.findall(r'srcset="(.*?)[,|"]', temp_img),  # list
-                'permalink': "".join(re.findall(r'permalink: \'(.*?)\'', temp_script)),
-                'publish_date': "".join(re.findall(r'datePublished : \'(.*?)\'', temp_script))
-
-            }
+        }
         # # above yield code can work well; the following code commented is another way. But, it uses [[ instead of [ for url and link
         # item = SinglePageScraperItem()
         # item['id'] = self.n

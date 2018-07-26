@@ -1,0 +1,102 @@
+1532552338913	geckodriver	INFO	geckodriver 0.21.0
+1532552338922	geckodriver	INFO	Listening on 127.0.0.1:62495
+1532552339907	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/2j/sv5145bs6wsds0d9w_6gfl_m0000gn/T/rust_mozprofile.07X76HZIjl1g"
+2018-07-25 16:59:01.249 plugin-container[73696:10844646] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x813f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2018-07-25 16:59:01.485 plugin-container[73697:10844673] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x7e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1532552341718	Marionette	INFO	Listening on port 62506
+1532552341760	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-07-25 16:59:02.231 plugin-container[73698:10844796] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x743f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript warning: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: unreachable code after return statement
+JavaScript warning: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: unreachable code after return statement
+JavaScript warning: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: unreachable code after return statement
+JavaScript error: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: TypeError: n6 is undefined
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2D00B0,name=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1532552393636	geckodriver	INFO	geckodriver 0.21.0
+1532552393641	geckodriver	INFO	Listening on 127.0.0.1:62998
+1532552394642	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/2j/sv5145bs6wsds0d9w_6gfl_m0000gn/T/rust_mozprofile.4mmFtAraB3Bn"
+2018-07-25 16:59:55.954 plugin-container[73728:10845541] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x853f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2018-07-25 16:59:56.127 plugin-container[73729:10845567] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x793f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1532552396386	Marionette	INFO	Listening on port 63009
+1532552396484	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-07-25 16:59:56.855 plugin-container[73730:10845688] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8603, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript warning: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: unreachable code after return statement
+JavaScript warning: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: unreachable code after return statement
+JavaScript warning: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: unreachable code after return statement
+JavaScript error: https://d3n6i6eorggdxk.cloudfront.net/script.js, line 1: TypeError: n6 is undefined
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x550027,name=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2D00B0,name=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+Invalid port. Exiting...

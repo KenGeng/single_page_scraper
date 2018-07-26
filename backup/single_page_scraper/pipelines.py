@@ -11,7 +11,7 @@ from scrapy.exporters import JsonItemExporter
 class SinglePageScraperPipeline(object):
     def process_item(self, item, spider):
         base_dir = os.getcwd()
-        filename = base_dir + '/result_s_after800t.json'
+        filename = base_dir + '/result_s.json'
         # 打开json文件，向里面以dumps的方式吸入数据
         # 注意需要有一个参数ensure_ascii=False ，不然数据会直接为utf编码的方式存入比如
         # :“/xe15”
@@ -24,7 +24,7 @@ class SinglePageScraperPipeline(object):
 # json array
 class JsonExporterPipeline(object):
     def __init__(self):
-        self.file = open('./result_after800.json', 'wb')
+        self.file = open('./simplified_result.json', 'wb')
         self.exporter = JsonItemExporter(self.file, encoding="utf-8", ensure_ascii=False)
         self.exporter.start_exporting()
 
@@ -42,7 +42,7 @@ class PipelineToCSV(object):
 
     def __init__(self):
         # csv文件的位置
-        store_file = os.getcwd() + '/result_after800.csv'
+        store_file = os.getcwd() + '/result_s.csv'
         flag = 0
         if not os.path.isfile(store_file):
             flag = 1
@@ -52,15 +52,15 @@ class PipelineToCSV(object):
         # csv写法
         self.writer = csv.writer(self.file)
         if flag == 1:
-            self.writer.writerow(('id', 'claim', 'rating', 'image_url', 'permalink', 'publish_date'))
+            # self.writer.writerow(('id', 'claim', 'rating', 'image_url', 'permalink', 'publish_date'))
             # simplified:
-            # self.writer.writerow(('id', 'image_url', 'permalink','tweet_id'))
+            self.writer.writerow(('id', 'image_url', 'permalink'))
 
     def process_item(self, item, spider):
         # 判断字段值不为空再写入文件
-        self.writer.writerow(
-            (item['id'], item['claim'], item['rating'], item['image_url'], item['permalink'], item['publish_date']))
-        # simplified:
         # self.writer.writerow(
-        #     (item['id'], item['image_url'], item['permalink'], item['tweet_id']))
+        #     (item['id'], item['claim'], item['rating'], item['image_url'], item['permalink'], item['publish_date']))
+        # simplified:
+        self.writer.writerow(
+            (item['id'], item['image_url'], item['permalink']))
         return item
