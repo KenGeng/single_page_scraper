@@ -5,22 +5,17 @@ import scrapy
 import re
 import pandas as pd
 
-
 from single_page_scraper.items import SinglePageScraperItem
 
 
 class SinglePageSpider(scrapy.Spider):
     def __init__(self):
-        self.n = 880
-        self.d = pd.read_csv('/Users/apple/fakenews/single_page_scraper/single_page_scraper/TitleAndLink2.csv',
+        self.n = 1
+        self.d = pd.read_csv('~/fakenews/single_page_scraper/single_page_scraper/TitleAndLink2.csv',
                              usecols=['title', 'link'])
         self.start_urls = [self.d.iat[self.n, 1]]
 
     name = 'single_page_spider'
-
-    # def __init__(self,
-    #              category='https://www.snopes.com/fact-check/accused-russian-spy-mariia-butina-photographed-oval-office/'):
-    #     self.start_urls = [category]
 
     def parse(self, response):
         ARTICLE_SELECTOR = '.article-text-inner'
@@ -32,7 +27,6 @@ class SinglePageSpider(scrapy.Spider):
             return
 
         rating = response.css(RATING_SELECTOR).css('span ::text').extract_first()
-
 
         if len(re.findall(r'srcset="(.*?)[,|"]', temp_img)) > 0 and not (rating is None):
             if rating is None:
@@ -70,7 +64,7 @@ class SinglePageSpider(scrapy.Spider):
         next_page = self.d.iat[self.n, 1]
 
         # print(next_page)
-        if next_page :
+        if next_page:
             # normal page
             yield scrapy.Request(
                 response.urljoin(next_page),

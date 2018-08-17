@@ -11,7 +11,7 @@ from scrapy.exporters import JsonItemExporter
 class SinglePageScraperPipeline(object):
     def process_item(self, item, spider):
         base_dir = os.getcwd()
-        filename = base_dir + '/result_s_after800t.json'
+        filename = base_dir + '/result_s.json'
         # 打开json文件，向里面以dumps的方式吸入数据
         # 注意需要有一个参数ensure_ascii=False ，不然数据会直接为utf编码的方式存入比如
         # :“/xe15”
@@ -24,7 +24,7 @@ class SinglePageScraperPipeline(object):
 # json array
 class JsonExporterPipeline(object):
     def __init__(self):
-        self.file = open('./result_after800.json', 'wb')
+        self.file = open('./result_s.json', 'wb')
         self.exporter = JsonItemExporter(self.file, encoding="utf-8", ensure_ascii=False)
         self.exporter.start_exporting()
 
